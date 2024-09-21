@@ -14,9 +14,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 md:gap-4">
           {/* first section */}
           <div className="space-y-4 max-w-[300px]">
-            <h1 className="text-2xl font-bold">Edify - Home Learning</h1>
+            <h1 className="text-2xl font-bold">Kaushaly - Home Learning</h1>
             <p className="text-dark2">
-            Edify is your personalized learning platform, Connect with expert tutors, master any subject, and achieve your goals. 
+            Kaushaly is your personalized learning platform, Connect with expert tutors, master any subject, and achieve your goals. 
             We empower learners of all ages, offering flexible and convenient access to quality instruction.
             </p>
           </div>
