@@ -33,7 +33,7 @@ const Card = ({ name, age, position, detailInformation, image }) => {
       </div>
       <div className="flex flex-col overflow-hidden">
         <h2 className="text-lg font-bold mb-2 text-center">{name}</h2>
-        <p className="text-gray-500 mb-4 text-center">Age: {age} | Position: {position}</p>
+        <p className="text-gray-500 mb-4 text-center">Age: {age} | {position}</p>
         <div className="text-gray-700 line-clamp-8">
           {detailInformation}
         </div>
