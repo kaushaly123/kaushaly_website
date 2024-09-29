@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBell } from "react-icons/fa";
 import BgImage from "../../assets/bg.png";
 import { motion } from "framer-motion";
@@ -11,10 +11,38 @@ const bgStyle = {
 };
 
 const Subscribe = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState(null);
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setSelectedRole(null);
+  };
+
+  const handleRoleSelect = (role) => {
+    setSelectedRole(role);
+  };
+
+  const renderForm = () => {
+    if (selectedRole === 'student') {
+      // Replace with your student Google Form URL
+      return <iframe src="https://forms.office.com/r/1GcHN6HduV" title="Student Google Form" width="100%" height="400px"style={{ overflow: 'hidden'  }}></iframe>;
+    } else if (selectedRole === 'teacher') {
+      // Replace with your teacher Google Form URL
+      return <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdX_your_teacher_form_id/viewform?usp=sf_link" title="Teacher Google Form" width="600" height="400"></iframe>;
+    } else {
+      return <p>Please select your role.</p>;
+    }
+  };
+
   return (
-    <section className="bg-[#f7f7f7]">
+    <section className="bg-[#f7f7f7]" id="Subscribe">
       <motion.div
-        initial={{ opacity: 0 }}  
+        initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         style={bgStyle}
         className="container py-24 md:py-48"
@@ -27,22 +55,48 @@ const Subscribe = () => {
         >
           <div className="text-center space-y-4 lg:max-w-[430px] mx-auto">
             <h1 className="text-4xl font-bold !leading-snug">
-            10+ Students, 5+ Tutors, Learning Together.
+              10+ Students, 5+ Tutors, Learning Together.
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Recusandae iusto minima
             </p>
-            <a
-              href=""
+            <button
               className="primary-btn !mt-8 inline-flex items-center gap-4 group"
+              onClick={handleOpenModal}
             >
               Subscribe Now
               <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
-            </a>
+            </button>
           </div>
         </motion.div>
       </motion.div>
+
+      {isOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded shadow-md">
+            <h2 className="text-xl font-bold mb-4">Choose Your Role</h2>
+            <div className="flex space-x-4">
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+                onClick={() => handleRoleSelect('student')}
+              >
+                Student
+              </button>
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+                onClick={() => handleRoleSelect('teacher')}
+              >
+                Teacher
+              </button>
+            </div>
+            <div className="mt-4">{renderForm()}</div>
+            <button className="bg-gray-400 text-white px-4 py-2 rounded mt-2" onClick={handleCloseModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

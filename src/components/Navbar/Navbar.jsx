@@ -49,13 +49,12 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-
   return (
     <nav className="relative z-20">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="container py-10 flex justify-between items-center"
+        className="container py-10 flex justify-between items-center z-10"
       >
         {/* Logo section */}
         <div className="">
@@ -84,7 +83,7 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <button className="primary-btn">Join Now</button>
+            {/* <button className="primary-btn">Join Now</button> */}
           </ul>
         </div>
 
@@ -95,16 +94,18 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ ease: "easeOut", duration: 0.3 }}
             className="fixed top-0 left-0 right-0 bottom-0 bg-white shadow-lg z-50 lg:hidden"
+            onClick={toggleMenu} // Add click handler to the entire container
           >
             <ul className="flex flex-col items-center gap-4 py-10 px-6">
               {NavbarMenu.map((menu) => (
                 <li key={menu.id}>
-                  <a href={menu.path} className="text-xl block hover:text-secondary">
+                  <a href={menu.path} className="text-xl block hover:text-secondary z-50">
+                    {/* Set z-index to 50 */}
                     {menu.title}
                   </a>
                 </li>
               ))}
-              <button className="primary-btn mt-auto">Join Now</button>
+              {/* <button className="primary-btn mt-auto">Join Now</button> */}
             </ul>
             {/* Add a backdrop to close the menu when clicked outside */}
             <div
