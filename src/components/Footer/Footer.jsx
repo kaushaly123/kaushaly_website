@@ -68,11 +68,11 @@ const Footer = () => {
               <h2>kaushalylearning@gmail.com</h2>
             </div>
             <div className="flex items-center">
-              <h3>Contact No. 9407272540</h3>
+              <h3>Contact No. 9407272540, 9111734335</h3>
             </div>
             {/* social icons */}
             <div className="flex space-x-6 py-3">
-              <a href="https://wa.me/qr/LOCVIXV5WA7NC1">
+              <a href="https://wa.me/message/TFB5IFVLHJBEG1">
                 <FaWhatsapp className="cursor-pointer hover:text-primary hover:scale-105 duration-200" />
               </a>
               <a href="https://www.instagram.com/kaushaly_learning/">
