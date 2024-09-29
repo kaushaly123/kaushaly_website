@@ -33,7 +33,7 @@ const Subscribe = () => {
       return <iframe src="https://forms.office.com/r/1GcHN6HduV" title="Student Google Form" width="100%" height="400px"style={{ overflow: 'hidden'  }}></iframe>;
     } else if (selectedRole === 'teacher') {
       // Replace with your teacher Google Form URL
-      return <iframe src="https://forms.gle/XCiLZFjsPnB6McXA8" title="Teacher Google Form" width="600" height="400"></iframe>;
+      return <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1BPRQTtoSQTv_cNZM1fThQbKFAWPW_1yQXG_TSn8_UQISwg/viewform?usp=sf_link" title="Teacher Google Form" width="100%" height="400px"></iframe>;
     } else {
       return <p>Please select your role.</p>;
     }
