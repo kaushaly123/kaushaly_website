@@ -17,16 +17,14 @@ const Banner2 = () => {
               Join Our Community to Start your Journey
             </h1>
             <p className="text-dark2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Recusandae iusto minima ad ut id eos accusantium aut, aperiam quis
-              incidunt!
+            Kaushalya Home Learning is your gateway to personalized, affordable, and effective home tutoring. Join our vibrant community of learners and experienced tutors, and unlock your full potential.
             </p>
-            <a
+            {/* <a
               href=""
               className="primary-btn !mt-8"
             >
               Join Now
-            </a>
+            </a> */}
           </div>
         </motion.div>
         {/* Banner Image */}

@@ -33,7 +33,7 @@ const Subscribe = () => {
       return <iframe src="https://forms.office.com/r/1GcHN6HduV" title="Student Google Form" width="100%" height="400px"style={{ overflow: 'hidden'  }}></iframe>;
     } else if (selectedRole === 'teacher') {
       // Replace with your teacher Google Form URL
-      return <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdX_your_teacher_form_id/viewform?usp=sf_link" title="Teacher Google Form" width="600" height="400"></iframe>;
+      return <iframe src="https://forms.gle/XCiLZFjsPnB6McXA8" title="Teacher Google Form" width="600" height="400"></iframe>;
     } else {
       return <p>Please select your role.</p>;
     }
@@ -58,8 +58,7 @@ const Subscribe = () => {
               10+ Students, 5+ Tutors, Learning Together.
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Recusandae iusto minima
+            At Kaushalya Home Learning, we're more than just a tutoring service. We're a family of 5+ experienced tutors and 10+ dedicated students, all united by a passion for learning and growth.
             </p>
             <button
               className="primary-btn !mt-8 inline-flex items-center gap-4 group"
