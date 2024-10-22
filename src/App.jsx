@@ -6,6 +6,8 @@ import Subscribe from "./components/Subscribe/Subscribe";
 import Banner2 from "./components/Banner/Banner2";
 import Footer from "./components/Footer/Footer";
 import Team from "./components/Team/Team";
+import AboutUs from "./components/AboutUs/Aboutus";
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   const subscribeRef = useRef(null);  // Create a ref for the Subscribe section
@@ -25,7 +27,9 @@ const App = () => {
       </div>
       <Team />
       <Banner2 />
+      {/* <AboutUs /> */}
       <Footer />
+      <Analytics />
     </main>
   );
 };

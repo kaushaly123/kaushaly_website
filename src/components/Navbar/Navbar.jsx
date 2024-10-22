@@ -17,7 +17,7 @@ const NavbarMenu = [
   {
     id: 3,
     title: "About Us",
-    path: "#contact",
+    path: "#aboutus",
   },
   {
     id: 4,

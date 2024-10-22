@@ -55,10 +55,10 @@ const Subscribe = () => {
         >
           <div className="text-center space-y-4 lg:max-w-[430px] mx-auto">
             <h1 className="text-4xl font-bold !leading-snug">
-              10+ Students, 5+ Tutors, Learning Together.
+              100+ Students, 50+ Tutors, Learning Together.
             </h1>
             <p>
-            At Kaushalya Home Learning, we're more than just a tutoring service. We're a family of 5+ experienced tutors and 10+ dedicated students, all united by a passion for learning and growth.
+            At Kaushalya Home Learning, we're more than just a tutoring service. We're a family of 50+ experienced tutors and 100+ dedicated students, all united by a passion for learning and growth.
             </p>
             <button
               className="primary-btn !mt-8 inline-flex items-center gap-4 group"
