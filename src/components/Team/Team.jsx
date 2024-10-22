@@ -3,7 +3,7 @@ import React from 'react';
 import Card from './Card';
 import LakshyaImage from '../../assets/lakshya.jpg';
 import PawanImage from '../../assets/pawan.jpg';
-import SaurabhImage from '../../assets/saurabh1.jpg';
+import SaurabhImage from '../../assets/saurabh.jpg';
 
 const Team = () => {
   const teamData = [
