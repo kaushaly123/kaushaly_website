@@ -34,10 +34,9 @@ const NavbarMenu = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Use useEffect to detect screen size changes and update isOpen state accordingly
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) { // Adjust breakpoint as needed (768px is commonly used for tablets)
+      if (window.innerWidth >= 768) {
         setIsOpen(false);
       }
     };
@@ -58,7 +57,7 @@ const Navbar = () => {
       >
         {/* Logo section */}
         <div className="">
-          <img src={LogoImage} alt="" className="h-24" />
+          <img src={LogoImage} alt="Logo" className="h-24" />
         </div>
 
         {/* Mobile Hamburger menu section */}
@@ -83,36 +82,40 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            {/* <button className="primary-btn">Join Now</button> */}
           </ul>
         </div>
 
-        {/* Mobile Menu section (conditionally rendered based on isOpen state) */}
+        {/* Mobile Menu section */}
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ease: "easeOut", duration: 0.3 }}
-            className="fixed top-0 left-0 right-0 bottom-0 bg-white shadow-lg z-50 lg:hidden"
-            onClick={toggleMenu} // Add click handler to the entire container
-          >
-            <ul className="flex flex-col items-center gap-4 py-10 px-6">
-              {NavbarMenu.map((menu) => (
-                <li key={menu.id}>
-                  <a href={menu.path} className="text-xl block hover:text-secondary z-50">
-                    {/* Set z-index to 50 */}
-                    {menu.title}
-                  </a>
-                </li>
-              ))}
-              {/* <button className="primary-btn mt-auto">Join Now</button> */}
-            </ul>
-            {/* Add a backdrop to close the menu when clicked outside */}
+          <>
+            {/* Backdrop */}
             <div
               className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-20 z-40"
               onClick={toggleMenu}
             />
-          </motion.div>
+
+            {/* Menu Content */}
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: "easeOut", duration: 0.3 }}
+              className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 p-6"
+            >
+              <ul className="flex flex-col items-center gap-4 py-10">
+                {NavbarMenu.map((menu) => (
+                  <li key={menu.id}>
+                    <a
+                      href={menu.path}
+                      className="text-xl block hover:text-secondary"
+                      onClick={() => setIsOpen(false)} // Close menu on link click
+                    >
+                      {menu.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
         )}
       </motion.div>
     </nav>

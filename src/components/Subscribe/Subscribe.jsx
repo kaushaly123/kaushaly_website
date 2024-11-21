@@ -61,12 +61,19 @@ const Subscribe = () => {
             At Kaushalya Home Learning, we're more than just a tutoring service. We're a family of 50+ experienced tutors and 100+ dedicated students, all united by a passion for learning and growth.
             </p>
             <button
-              className="primary-btn !mt-8 inline-flex items-center gap-4 group"
-              onClick={handleOpenModal}
-            >
-              Subscribe Now
-              <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
-            </button>
+  className="primary-btn !mt-8 inline-flex items-center gap-4 group"
+  onClick={handleOpenModal}
+>
+  Student
+  <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
+</button>
+<button
+  className="primary-btn !mt-8 inline-flex items-center gap-4 group"
+  onClick={handleOpenModal}
+>
+  Teacher
+  <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
+</button>
           </div>
         </motion.div>
       </motion.div>
