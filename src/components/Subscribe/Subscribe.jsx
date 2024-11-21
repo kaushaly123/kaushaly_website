@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { FaBell } from "react-icons/fa";
 import BgImage from "../../assets/bg.png";
 import { motion } from "framer-motion";
@@ -14,7 +14,8 @@ const Subscribe = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState(null);
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (role) => {
+    setSelectedRole(role); // Set role to display the respective form
     setIsOpen(true);
   };
 
@@ -23,20 +24,29 @@ const Subscribe = () => {
     setSelectedRole(null);
   };
 
-  const handleRoleSelect = (role) => {
-    setSelectedRole(role);
-  };
-
   const renderForm = () => {
-    if (selectedRole === 'student') {
-      // Replace with your student Google Form URL
-      return <iframe src="https://forms.office.com/r/1GcHN6HduV" title="Student Google Form" width="100%" height="400px"style={{ overflow: 'hidden'  }}></iframe>;
-    } else if (selectedRole === 'teacher') {
-      // Replace with your teacher Google Form URL
-      return <iframe src="https://forms.office.com/r/6YryKPpUTv" title="Teacher Google Form" width="100%" height="400px"></iframe>;
-    } else {
-      return <p>Please select your role.</p>;
+    if (selectedRole === "student") {
+      return (
+        <iframe
+          src="https://forms.office.com/r/1GcHN6HduV"
+          title="Student Form"
+          width="100%"
+          height="400px"
+          style={{ overflow: "hidden" }}
+        ></iframe>
+      );
+    } else if (selectedRole === "teacher") {
+      return (
+        <iframe
+          src="https://forms.office.com/r/6YryKPpUTv"
+          title="Teacher Form"
+          width="100%"
+          height="400px"
+          style={{ overflow: "hidden" }}
+        ></iframe>
+      );
     }
+    return null; // If no role is selected, render nothing
   };
 
   return (
@@ -58,46 +68,42 @@ const Subscribe = () => {
               100+ Students, 50+ Tutors, Learning Together.
             </h1>
             <p>
-            At Kaushalya Home Learning, we're more than just a tutoring service. We're a family of 50+ experienced tutors and 100+ dedicated students, all united by a passion for learning and growth.
+              At Kaushalya Home Learning, we're more than just a tutoring
+              service. We're a family of 50+ experienced tutors and 100+
+              dedicated students, all united by a passion for learning and
+              growth.
             </p>
-            <button
-  className="primary-btn !mt-8 inline-flex items-center gap-4 group"
-  onClick={handleOpenModal}
->
-  Student
-  <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
-</button>
-<button
-  className="primary-btn !mt-8 inline-flex items-center gap-4 group"
-  onClick={handleOpenModal}
->
-  Teacher
-  <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
-</button>
+            <div className="space-x-4">
+              <button
+                className="primary-btn !mt-8 inline-flex items-center gap-4 group"
+                onClick={() => handleOpenModal("student")}
+              >
+                Student
+                <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
+              </button>
+              <button
+                className="primary-btn !mt-8 inline-flex items-center gap-4 group"
+                onClick={() => handleOpenModal("teacher")}
+              >
+                Teacher
+                <FaBell className="group-hover:animate-bounce group-hover:text-lg duration-200" />
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>
 
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-md">
-            <h2 className="text-xl font-bold mb-4">Choose Your Role</h2>
-            <div className="flex space-x-4">
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded"
-                onClick={() => handleRoleSelect('student')}
-              >
-                Student
-              </button>
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded"
-                onClick={() => handleRoleSelect('teacher')}
-              >
-                Teacher
-              </button>
-            </div>
-            <div className="mt-4">{renderForm()}</div>
-            <button className="bg-gray-400 text-white px-4 py-2 rounded mt-2" onClick={handleCloseModal}>
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded shadow-md relative w-[90%] max-w-lg">
+            <h2 className="text-xl font-bold mb-4">
+              {selectedRole === "student" ? "Student Form" : "Teacher Form"}
+            </h2>
+            <div className="overflow-hidden">{renderForm()}</div>
+            <button
+              className="bg-gray-400 text-white px-4 py-2 rounded mt-4 absolute top-4 right-4"
+              onClick={handleCloseModal}
+            >
               Close
             </button>
           </div>
