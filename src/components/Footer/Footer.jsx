@@ -68,7 +68,7 @@ const Footer = () => {
               <h2>kaushalylearning@gmail.com</h2>
             </div>
             <div className="flex items-center">
-              <h3>Contact No. 9407272540, 9111734335</h3>
+              <h3>Contact No. 9407272540, 9589362921</h3>
             </div>
             {/* social icons */}
             <div className="flex space-x-6 py-3">
